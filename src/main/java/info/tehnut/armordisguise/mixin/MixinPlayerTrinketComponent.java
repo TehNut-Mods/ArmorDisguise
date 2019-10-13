@@ -17,10 +17,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PlayerTrinketComponent.class)
 public abstract class MixinPlayerTrinketComponent {
 
-    @Shadow
+    @Shadow(remap = false)
     private PlayerEntity player;
 
-    @Shadow
+    @Shadow(remap = false)
     public abstract Inventory getInventory();
 
     @Inject(method = "equip", at = @At("HEAD"), cancellable = true, remap = false)
