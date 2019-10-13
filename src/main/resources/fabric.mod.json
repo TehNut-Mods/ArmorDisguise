@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "armordisguise",
+  "version": "1.0.0",
+
+  "name": "Armor Disguise",
+  "description": "Adds Trinket slots that let you disguise what armor you're currently wearing",
+  "authors": [
+    "TehNut"
+  ],
+  "contributors": [],
+
+  "license": "MIT",
+  "icon": "assets/armordisguise/logo.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "info.tehnut.armordisguise.ArmorDisguise"
+    ]
+  },
+  "mixins": [
+    "armordisguise.common.json"
+  ],
+  "requires": {
+    "trinkets": "*"
+  }
+}

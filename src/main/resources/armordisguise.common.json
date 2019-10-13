@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "info.tehnut.armordisguise.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "armordisguise-refmap.json",
+  "mixins": [
+    "MixinArmorItem",
+    "MixinPlayerTrinketComponent"
+  ],
+  "client": [
+    "client.MixinArmorFeatureRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
