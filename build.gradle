@@ -63,7 +63,7 @@ curseforge {
         addGameVersion("Fabric")
 
         relations {
-            requiredLibrary 'trinkets'
+            requiredLibrary 'trinkets-fabric'
         }
         
         addArtifact sourcesJar
