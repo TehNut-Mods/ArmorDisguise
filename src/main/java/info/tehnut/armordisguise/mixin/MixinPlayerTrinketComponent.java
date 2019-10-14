@@ -12,8 +12,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-
-// lol
+// Since Trinkets hooks shift-click equipping at the top, armor items now prioritize trinket slots over vanilla slots. Our
+// hack here reverts that. Shift clicking armor will now prioritize vanilla slots, but will also go into trinket slots when
+// the vanilla slot contains an item.
 @Mixin(PlayerTrinketComponent.class)
 public abstract class MixinPlayerTrinketComponent {
 
@@ -24,7 +25,7 @@ public abstract class MixinPlayerTrinketComponent {
     public abstract Inventory getInventory();
 
     @Inject(method = "equip", at = @At("HEAD"), cancellable = true, remap = false)
-    public void tad$equip(ItemStack stack, CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
+    public void armordisguise$equip(ItemStack stack, CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
         if (!(stack.getItem() instanceof ArmorItem))
             return;
 

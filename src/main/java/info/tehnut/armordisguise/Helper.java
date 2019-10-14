@@ -12,19 +12,23 @@ import net.minecraft.item.ItemStack;
 
 public class Helper {
 
+    // Returns true if we've successfully transferred the item, false if we don't want to handle it.
     public static boolean handleEquip(ItemStack stack, ArmorItem armor, PlayerEntity player, Inventory inventory) {
         ItemStack vanillaStack = player.getEquippedStack(armor.getSlotType());
-        // Not exactly safe, but we know these slots exist
+        // If the vanilla slot is empty, revert to original shift-click behavior
         if (vanillaStack.isEmpty()) {
+            // Not exactly safe, but we know these slots exist
             TrinketSlots.SlotGroup slotGroup = TrinketSlots.slotGroups.stream().filter(g -> g.getName().equals(armor.getSlotType().getName())).findFirst().get();
             player.setEquippedStack(armor.getSlotType(), stack.copy());
             TrinketsClient.lastEquipped = slotGroup;
             TrinketsClient.displayEquipped = 16;
             return true;
         } else {
+            // If the stack to transfer is the same one we're currently wearing, transfer back to the inventory
             if (stack == vanillaStack)
                 return false;
 
+            // Find a valid overlay slot for this item and stick it there
             int i = 0;
             for (TrinketSlots.SlotGroup group : TrinketSlots.slotGroups) {
                 for (TrinketSlots.Slot slot : group.slots) {
