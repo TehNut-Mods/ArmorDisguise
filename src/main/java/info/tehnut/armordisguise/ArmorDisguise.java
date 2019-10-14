@@ -10,9 +10,7 @@ import java.util.Set;
 public class ArmorDisguise implements ModInitializer {
 
     public static final String MODID = "armordisguise";
-    public static final Set<String> GROUPS = new ImmutableSet.Builder<String>().add(
-            "head", "chest", "legs", "feet"
-    ).build();
+    public static final Set<String> GROUPS = ImmutableSet.of("head", "chest", "legs", "feet");
 
     @Override
     public void onInitialize() {
