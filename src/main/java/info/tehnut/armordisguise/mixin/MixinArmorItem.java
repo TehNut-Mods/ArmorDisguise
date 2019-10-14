@@ -1,6 +1,7 @@
 package info.tehnut.armordisguise.mixin;
 
 import dev.emi.trinkets.api.ITrinket;
+import info.tehnut.armordisguise.ArmorDisguise;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import org.spongepowered.asm.mixin.Final;
@@ -19,13 +20,8 @@ public class MixinArmorItem implements ITrinket {
         if (!group.equals(this.slot.getName()))
             return false;
 
-        switch (group) {
-            case "head":
-            case "chest":
-            case "legs":
-            case "feet":
-                return slot.equals("overlay");
-        }
+        if (ArmorDisguise.GROUPS.contains(group))
+            return "overlay".equals(slot);
 
         return false;
     }
