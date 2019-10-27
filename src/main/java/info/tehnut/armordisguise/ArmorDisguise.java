@@ -14,6 +14,6 @@ public class ArmorDisguise implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        GROUPS.forEach(s -> TrinketSlots.addSubSlot(s, "overlay", new Identifier(MODID, "textures/item/empty_trinket_slot_" + s + "_overlay.png")));
+        GROUPS.forEach(s -> TrinketSlots.addSlot(s, "overlay", new Identifier(MODID, "textures/item/empty_trinket_slot_" + s + "_overlay.png")));
     }
 }

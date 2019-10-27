@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class MixinArmorFeatureRenderer<T extends LivingEntity> {
 
     @Redirect(method = "renderArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
-    public ItemStack tad$getOverlayArmor(T entity, EquipmentSlot slot) {
+    public ItemStack armordisguise$getOverlayArmor(T entity, EquipmentSlot slot) {
         if (!(entity instanceof PlayerEntity))
             return entity.getEquippedStack(slot);
 
