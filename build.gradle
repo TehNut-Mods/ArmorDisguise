@@ -33,7 +33,7 @@ task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
     classifier = 'sources'
 }
-
+/*
 publishing {
     tasks.publish.dependsOn 'build'
     publications {
@@ -48,6 +48,27 @@ publishing {
         } else {
             mavenLocal()
         }
+    }
+}
+*/
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            // add all the jars that should be included when publishing to maven
+            artifact(remapJar) {
+                builtBy remapJar
+            }
+            artifact(sourcesJar) {
+                builtBy remapSourcesJar
+            }
+        }
+    }
+
+    // select the repositories you want to publish to
+    repositories {
+        // uncomment to publish to the local maven
+        mavenLocal()
     }
 }
 
