@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 // Modifies the stack obtained for rendering on the player. If a trinket "overlay" exists, we want to render that instead
 // of the proper armor.
 @Mixin(ArmorFeatureRenderer.class)
-public class MixinArmorFeatureRenderer<T extends LivingEntity> {
+public abstract class MixinArmorFeatureRenderer<T extends LivingEntity> {
 
     @Redirect(method = "renderArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
     public ItemStack armordisguise$getOverlayArmor(T entity, EquipmentSlot slot) {
