@@ -19,7 +19,7 @@ public class Helper {
         if (vanillaStack.isEmpty()) {
             // Not exactly safe, but we know these slots exist
             TrinketSlots.SlotGroup slotGroup = TrinketSlots.slotGroups.stream().filter(g -> g.getName().equals(armor.getSlotType().getName())).findFirst().get();
-            player.setEquippedStack(armor.getSlotType(), stack.copy());
+            player.equipStack(armor.getSlotType(), stack.copy());
             TrinketsClient.lastEquipped = slotGroup;
             TrinketsClient.displayEquipped = 16;
             return true;
