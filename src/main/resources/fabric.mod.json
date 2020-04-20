@@ -23,6 +23,6 @@
     "armordisguise.common.json"
   ],
   "requires": {
-    "trinkets": ">=2.0.0"
+    "trinkets": ">=2.4.2"
   }
 }

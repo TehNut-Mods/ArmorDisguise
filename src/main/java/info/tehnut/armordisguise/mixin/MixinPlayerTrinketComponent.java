@@ -25,7 +25,7 @@ public abstract class MixinPlayerTrinketComponent {
     public abstract Inventory getInventory();
 
     @Inject(method = "equip", at = @At("HEAD"), cancellable = true, remap = false)
-    public void armordisguise$equip(ItemStack stack, CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
+    public void armordisguise$equip(ItemStack stack, boolean shiftClick, CallbackInfoReturnable<Boolean> callbackInfoReturnable) {
         if (!(stack.getItem() instanceof ArmorItem))
             return;
 
