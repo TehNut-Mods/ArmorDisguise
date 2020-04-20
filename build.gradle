@@ -38,7 +38,7 @@ publishing {
     tasks.publish.dependsOn 'build'
     publications {
         mavenJava(MavenPublication) {
-            artifact remapJar.output
+            artifact remapJar
             artifact sourcesJar
         }
     }
