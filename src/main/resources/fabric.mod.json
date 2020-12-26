@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "armordisguise",
-  "version": "1.0.2",
+  "version": "1.0.3",
 
   "name": "Armor Disguise",
   "description": "Adds Trinket slots that let you disguise what armor you're currently wearing",
@@ -23,6 +23,6 @@
     "armordisguise.common.json"
   ],
   "requires": {
-    "trinkets": ">=2.4.2"
+    "trinkets": ">=2.6.7"
   }
 }
