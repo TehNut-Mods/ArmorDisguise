@@ -1,6 +1,6 @@
 package info.tehnut.armordisguise.mixin;
 
-import dev.emi.trinkets.api.ITrinket;
+import dev.emi.trinkets.api.Trinket;
 import info.tehnut.armordisguise.ArmorDisguise;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
@@ -8,9 +8,9 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-// Applies the ITrinket interface to all armors (vanilla and modded) so that we have full mod compatibility.
+// Applies the Trinket interface to all armors (vanilla and modded) so that we have full mod compatibility.
 @Mixin(ArmorItem.class)
-public class MixinArmorItem implements ITrinket {
+public class MixinArmorItem implements Trinket {
 
     @Shadow
     @Final

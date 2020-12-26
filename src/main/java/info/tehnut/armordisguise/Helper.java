@@ -33,10 +33,10 @@ public class Helper {
             for (TrinketSlots.SlotGroup group : TrinketSlots.slotGroups) {
                 for (TrinketSlots.Slot slot : group.slots) {
                     if (group.getName().equals(armor.getSlotType().getName()) && slot.getName().equals("overlay")) {
-                        ItemStack trinketStack = inventory.getInvStack(i);
+                        ItemStack trinketStack = inventory.getStack(i);
 
                         if (trinketStack.isEmpty()) {
-                            inventory.setInvStack(i, stack.copy());
+                            inventory.setStack(i, stack.copy());
                             TrinketsClient.lastEquipped = group;
                             TrinketsClient.displayEquipped = 16;
                             return true;
